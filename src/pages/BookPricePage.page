@@ -1,0 +1,5 @@
+<apex:page standardcontroller="Account" extensions="Book">
+    <apex:form >
+   BookName: <apex:inputText label="Book Name" id="bookId" value="{!name}" />
+    </apex:form>
+</apex:page>

@@ -1,0 +1,67 @@
+<apex:page standardController="Company__c">
+
+    <apex:sectionHeader title="Company" subtitle="New Company"/>
+
+    <apex:form >
+
+    <apex:pageBlock title="Edit Company" mode="edit">
+
+        <apex:pageBlockSection title="Information" columns="2" >
+
+            <apex:inputField value="{! Company__c.Name }" required="true" />        
+
+       
+
+      <apex:inputField value="{! Company__c.Address__c }"/>
+
+          
+
+          <apex:pageBlockSectionItem >
+
+                                                                    <apex:outputLabel value="Owner" for="Owner" />
+                                                                    
+
+                                                                     {!$User.FirstName } {!$User.LastName}
+
+                                      </apex:pageBlockSectionItem> 
+
+            
+
+       <apex:inputField value="{! Company__c.Email__c}"/> 
+             <apex:pageBlockSectionItem >
+
+                 <apex:outputLabel value="Company Type" for="Company__CompanyType" />
+
+     
+
+                <apex:inputField value="{! Company__c.Company_Type__c }" id="Company__CompanyType"/>
+
+              </apex:pageBlockSectionItem>
+
+           
+
+          
+
+    <apex:inputField value="{! Company__c.Website__c }"/>
+
+</apex:pageBlockSection>
+
+        <apex:pageBlockButtons >
+
+            <apex:commandButton action="{! save }" value="Save" />        
+
+        
+
+            <apex:commandButton action="{! cancel }" value="Cancel" />        
+
+        </apex:pageBlockButtons>
+
+    </apex:pageBlock>
+
+   
+
+    <apex:pageMessages />
+
+    </apex:form>
+
+</apex:page>

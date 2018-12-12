@@ -1,0 +1,25 @@
+<aura:component controller="CreatingAccount" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickActionWithoutHeader" access="global">
+    <aura:attribute name="FName" type="String" />
+    <aura:attribute name="ANumber" type="String" />
+    <aura:attribute name="Dt" type="Date" />
+    <aura:attribute name="PickVal" type="String" />
+    
+    <h1 class='slds-text-heading--label'>
+    Information
+    </h1>
+    
+    <div>
+        <lightning:input label="First Name" name="myFName" type="String" value="{!v.FName}" required="true"/>
+        <lightning:input label="Account Number" name="myAccNum" type="String" value="{!v.ANumber}" required="true"/>
+        <lightning:input label="Date" name="myDate" type="Date" value="{!v.Dt}" required="true"/>
+        <lightning:select label="Ownership" name="myOwnership" value="{!v.PickVal}" required="true" >
+        <option value="">Choose one...</option>
+        <option value="Public">Public</option>
+        <option value="Private">Private</option>                 
+        <option value="Subsidiary">Subsidiary</option>
+        <option value="Other">Other</option>
+        </lightning:select>
+        <lightning:button label="Create Account" onclick="{!c.InsertIntoAccountController}" />
+    </div>
+    
+</aura:component>

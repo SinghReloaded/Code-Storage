@@ -1,0 +1,47 @@
+<aura:component controller='FetchAccountDetailsClass' implements='force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickActionWithoutHeader' access='global'>
+    <aura:attribute name='Accounts' type='FetchAccountDetailsClass.DisplayAccountRecords[]' />
+    <aura:attribute name="isDisabled" type="Boolean" default="false" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <table>
+        <thead>
+            <tr>
+                <th>Select</th>
+                <th>Name</th>
+                <th>Industry</th>
+                <th>Created Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <aura:iteration items="{!v.Accounts}" var="acc">
+                <tr>
+                    <td><ui:inputcheckbox value='{!acc.isSelected}'/></td>
+                    <td>{!acc.AccountName}</td>
+                    <td>{!acc.Industry}</td>
+                    <td>{!acc.CreatedDate}</td>
+                </tr>
+            </aura:iteration>
+        </tbody>
+    </table>
+    <div class='slds-align_absolute-center'><lightning:button label='Add' onclick='{!c.display}' /></div>
+    <aura:if isTrue='{!v.isDisabled}'>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Industry</th>
+                <th>Created Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <aura:iteration items="{!v.Accounts}" var="acc">
+                <tr>
+                    <td>{!acc.AccountName}</td>
+                    <td>{!acc.Industry}</td>
+                    <td>{!acc.CreatedDate}</td>
+                </tr>
+            </aura:iteration>
+        </tbody>
+    </table>
+    </aura:if>
+
+</aura:component>

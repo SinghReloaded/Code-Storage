@@ -1,0 +1,26 @@
+<aura:component controller='DependentPicklistInContactClass' implements='force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickActionWithoutHeader' access='global'>
+    <aura:attribute name="cntct" type="List"/>
+    <aura:attribute name='CountryValues' type='List'/>
+    <aura:attribute name='StateValues' type='List'/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <table>
+        <tbody>
+            <tr><div class="slds-grid slds-gutters slds-card">
+                <div class="slds-col slds-size_1-of-3 slds-p-around_medium"><td>{!v.cntct.Name}</td></div>
+                <div class="slds-col slds-size_1-of-3 slds-p-around_medium"><td><lightning:select aura:id="ParentPicklist" onchange="{!c.PickChange}">
+                    <option value="">---None---</option>
+                    <aura:iteration items="{!v.CountryValues}" var="cv">
+                        <option>{!cv}</option>
+                    </aura:iteration>
+                    </lightning:select></td></div>
+                <div class="slds-col slds-size_1-of-3 slds-p-around_medium"><td><lightning:select aura:id="DependentPicklist">
+                    <option value="">---None---</option>
+                    <aura:iteration items="{!v.StateValues}" var="sv">
+                        <option>{!sv}</option>
+                    </aura:iteration>
+                    </lightning:select></td></div>
+                </div></tr>
+        </tbody>
+    </table>
+    <div class='slds-align_absolute-center'><lightning:button label='Save' onclick='{!c.doSave}' /></div>
+</aura:component>

@@ -1,0 +1,18 @@
+<aura:component controller='DependentPicklistInContactClass' implements='force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickActionWithoutHeader' access='global'>
+    <aura:attribute name='Contacts' type='List'/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <table>
+        <thead>
+            <tr><div class="slds-grid slds-gutters slds-card">
+                <div class="slds-col slds-size_1-of-3 slds-p-around_medium"><th>Name</th></div>
+                <div class="slds-col slds-size_1-of-3 slds-p-around_medium"><th>Country</th></div>
+                <div class="slds-col slds-size_1-of-3 slds-p-around_medium"><th>State</th></div>
+                </div></tr>
+        </thead>
+        <tbody>
+            <aura:iteration items="{!v.Contacts}" var="con">
+                <c:CountryStatePicklistValues cntct="{!con}"/>
+            </aura:iteration>
+        </tbody>
+    </table>
+</aura:component>

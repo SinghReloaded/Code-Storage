@@ -1,0 +1,9 @@
+<apex:page standardController="Account" extensions="CombinedNamePOC4" >
+    <apex:form id="formid">
+    <apex:pageMessages ></apex:pageMessages>  
+    
+    
+        <input type="text" id="salutationid"/>
+        <input type="text" id="nameid"/>
+    </apex:form>    
+</apex:page>

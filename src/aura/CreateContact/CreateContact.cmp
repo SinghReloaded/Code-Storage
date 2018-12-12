@@ -1,0 +1,13 @@
+<aura:component controller="AccInLightning">
+    <aura:attribute name='FirstName' type='String'/>
+    
+    <h1 class='slds-text-heading--label'>
+    Information
+    </h1>
+    <form>
+        <br/>
+        <lightning:input label='First Name' type='String' value='{!v.FirstName}' required='true'/>
+        <br/>
+        <lightning:button label='Create Account' onclick='{!c.clickCreate}'/>
+    </form>                                          
+</aura:component>
